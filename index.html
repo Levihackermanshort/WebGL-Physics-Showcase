@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A WebGL2 GPU ping-pong water physics showcase with interactive ripples, draggable sphere, and shader lighting." />
+    <title>WebGL Physics Showcase</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="background-grid"></div>
+      <header class="topbar">
+        <div>
+          <h1>GPU WATER PHYSICS SHOWCASE</h1>
+          <p>full-water chamber · WebGL2 ping-pong framebuffer simulation</p>
+        </div>
+        <div class="badges">
+          <span>GPU Ping-Pong</span>
+          <span>Float Textures</span>
+          <span>No Packages</span>
+        </div>
+      </header>
+
+      <section class="layout">
+        <aside class="sidebar">
+          <div class="panel">
+            <h2>Presets</h2>
+            <div id="presetControls" class="stack"></div>
+          </div>
+
+          <div class="panel">
+            <h2>Quality</h2>
+            <div id="qualityControls" class="stack"></div>
+          </div>
+
+          <div class="panel">
+            <h2>Controls</h2>
+            <div class="button-grid">
+              <button id="pauseBtn">Pause</button>
+              <button id="hudBtn">Hide HUD</button>
+              <button id="gravityBtn" class="wide">Gravity Enabled</button>
+              <button id="autoBtn">Auto Ripples</button>
+              <button id="cinematicBtn">Cinematic On</button>
+              <button id="resetBtn" class="wide">Reset Simulation</button>
+              <button id="slowBtn" class="wide">Slow Motion Off</button>
+            </div>
+            <div class="sliders">
+              <label>Brush Radius <strong id="brushRadiusLabel">0.040</strong><input id="brushRadius" type="range" min="0.015" max="0.100" step="0.005" value="0.040" /></label>
+              <label>Brush Strength <strong id="brushStrengthLabel">0.11</strong><input id="brushStrength" type="range" min="0.02" max="0.25" step="0.01" value="0.11" /></label>
+              <label>Light Direction <strong id="lightAngleLabel">0.65</strong><input id="lightAngle" type="range" min="-3.14" max="3.14" step="0.05" value="0.65" /></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Sphere Material</h2>
+            <div id="materialControls" class="material-grid"></div>
+          </div>
+
+          <div class="panel">
+            <h2>Pipeline</h2>
+            <div id="metrics" class="metrics"></div>
+          </div>
+        </aside>
+
+        <section class="stage-card">
+          <canvas id="glCanvas" class="render-canvas"></canvas>
+          <canvas id="hudCanvas" class="hud-canvas"></canvas>
+          <div class="scene-title">
+            <span>Full-Water GPU Chamber</span>
+            <strong>Ping-Pong Heightfield Water</strong>
+          </div>
+          <div class="helper-text">
+            Click or drag to inject energy. Click near the sphere to move it. Double-click for a burst. Use brush controls, slow motion, reset, light direction, and sphere materials to explore the full-water chamber.
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="src/main.js"></script>
+  </body>
+</html>
